@@ -3,9 +3,11 @@ import {Button, Container, Stack, TextField, Typography} from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import {useInternationalization} from "../../hooks/useInternationalization";
+import {useNavigation} from "../../hooks/useNavigation";
 
 export const QuestionScreen = () => {
     const {i} = useInternationalization();
+    const {goToScreen, params} = useNavigation();
 
     const goBackAction: IBasicTopBarAction = {
         icon: <ArrowBackIcon />,
@@ -17,16 +19,16 @@ export const QuestionScreen = () => {
         onClick: () => console.log(">>> help")
     }
 
+    const _devNextQuestion = () => goToScreen('question', {questionId: (params.questionId || 0)+1})
+
     return <Container>
         <Stack direction="column" justifyContent="space-between" spacing={2} minHeight="100vh" pb={2}>
             <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={"28%"}/>
-            <Typography>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aspernatur error,
-                exercitationem facilis hic, inventore ipsum iusto laboriosam magnam modi nulla perferendis tempora
-                voluptatum? A deleniti in quas. Ducimus, voluptas!</Typography>
+            <Typography>This is a question with {params.questionId} id</Typography>
             <Stack direction="column" spacing={1}>
                 <TextField size="small" placeholder={i('noun:yourAnswer')}/>
-                <Button variant="contained">{i('noun:next')}</Button>
-                <Button variant="text">{i('action:skipQuestion')}</Button>
+                <Button variant="contained" onClick={_devNextQuestion}>{i('noun:next')}</Button>
+                <Button variant="text" onClick={_devNextQuestion}>{i('action:skipQuestion')}</Button>
             </Stack>
         </Stack>
     </Container>

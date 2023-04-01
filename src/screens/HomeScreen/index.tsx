@@ -47,7 +47,7 @@ export const HomeScreen = () => {
                         <ListItemText primary="Work permit application" secondary="10%"/>
                     </ListItemButton>
                     <Divider variant="fullWidth" component="li"/>
-                    <ListItemButton>
+                    <ListItemButton onClick={() => goToScreen('activeForm')}>
                         <ListItemIcon >
                             <DocumentScannerIcon />
                         </ListItemIcon>
