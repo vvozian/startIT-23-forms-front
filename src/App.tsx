@@ -7,6 +7,7 @@ import {ApplicationChecklistScreen} from "./screens/ApplicationChecklistScreen";
 import {FormMainScreen} from "./screens/FormMainScreen";
 import {ActiveFormScreen} from "./screens/ActiveFormScreen";
 import {QuestionScreen} from "./screens/QuestionScreen";
+import {ReadyFormScreen} from "./screens/ReadyFormScreen";
 
 const theme = createTheme();
 
@@ -21,7 +22,8 @@ export const App = () => {
                     'applicationChecklist': <ApplicationChecklistScreen/>,
                     'formMain': <FormMainScreen/>,
                     'activeForm': <ActiveFormScreen/>,
-                    'question': <QuestionScreen />
+                    'question': <QuestionScreen/>,
+                    'completedForm': <ReadyFormScreen/>
                 }
                 }/>
             </InternationalizationProvider>

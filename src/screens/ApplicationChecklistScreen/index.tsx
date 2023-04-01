@@ -22,6 +22,7 @@ import GradingIcon from "@mui/icons-material/Grading";
 import DocumentScannerIcon from "@mui/icons-material/DocumentScanner";
 import {BasicTopBar, IBasicTopBarAction} from "../../components/BasicTopBar";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 export const ApplicationChecklistScreen = () => {
     const {i} = useInternationalization();
@@ -33,7 +34,7 @@ export const ApplicationChecklistScreen = () => {
     }
 
     return <Container maxWidth={false}>
-        <Stack direction="column" justifyContent="start" spacing={2} height="100vh" py={2}>
+        <Stack direction="column" justifyContent="start" spacing={2} height="100vh" pb={2}>
             <Stack>
                 <BasicTopBar leftAction={goBackAction} title={"Work permit application"}/>
                 <List disablePadding>
@@ -81,7 +82,11 @@ export const ApplicationChecklistScreen = () => {
                         <ListItemText primary="Birth certificate"/>
                     </ListItem>
                     <Divider variant="fullWidth" component="li"/>
-                    <ListItem>
+                    <ListItem secondaryAction={
+                        <IconButton edge="end" onClick={() => goToScreen('formMain')}>
+                            <InfoOutlinedIcon />
+                        </IconButton>
+                    }>
                         <ListItemIcon>
                             <Checkbox
                                 edge="start"
@@ -92,7 +97,11 @@ export const ApplicationChecklistScreen = () => {
                         <ListItemText primary="F-3311"/>
                     </ListItem>
                     <Divider variant="fullWidth" component="li"/>
-                    <ListItem>
+                    <ListItem secondaryAction={
+                        <IconButton edge="end" onClick={() => goToScreen('formMain')}>
+                            <InfoOutlinedIcon />
+                        </IconButton>
+                    }>
                         <ListItemIcon>
                             <Checkbox
                                 edge="start"
@@ -100,7 +109,7 @@ export const ApplicationChecklistScreen = () => {
                                 disableRipple
                             />
                         </ListItemIcon>
-                        <ListItemText primary="F-1241"/>
+                        <ListItemText primary="F-1241" />
                     </ListItem>
                 </List>
             </Stack>

@@ -15,14 +15,9 @@ export const FormMainScreen = () => {
         onClick: () => goToScreen('home')
     }
 
-    const infoAction: IBasicTopBarAction = {
-        icon: <InfoOutlinedIcon />,
-        onClick: () => {}
-    }
-
     return <Container maxWidth={false}>
-        <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" py={2}>
-            <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={"Form"}/>
+        <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" pb={2}>
+            <BasicTopBar leftAction={goBackAction} title={"Form"}/>
             <Stack direction="column" alignItems={"center"}>
                 <DescriptionIcon sx={{fontSize: 200}} color="primary"/>
                 <Typography variant="h4">F-1281</Typography>

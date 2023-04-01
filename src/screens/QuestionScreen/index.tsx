@@ -19,7 +19,10 @@ export const QuestionScreen = () => {
         onClick: () => console.log(">>> help")
     }
 
-    const _devNextQuestion = () => goToScreen('question', {questionId: (params.questionId || 0)+1})
+    const _devNextQuestion = () => {
+        if (Math.random() >0.75) goToScreen('completedForm')
+        else goToScreen('question', {questionId: (params.questionId || 0) + 1})
+    }
 
     return <Container>
         <Stack direction="column" justifyContent="space-between" spacing={2} minHeight="100vh" pb={2}>

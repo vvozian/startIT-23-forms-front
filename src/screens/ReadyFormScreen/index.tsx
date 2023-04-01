@@ -6,7 +6,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import DescriptionIcon from '@mui/icons-material/Description';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
-export const ActiveFormScreen = () => {
+export const ReadyFormScreen = () => {
     const {i} = useInternationalization();
     const {params: {formFillId}, goToScreen} = useNavigation();
 
@@ -22,13 +22,13 @@ export const ActiveFormScreen = () => {
 
     return <Container maxWidth={false}>
         <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" pb={2}>
-            <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={"10%"}/>
+            <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={i('noun:completedForm')}/>
             <Stack direction="column" alignItems={"center"}>
                 <DescriptionIcon sx={{fontSize: 200}} color="primary"/>
                 <Typography variant="h4">F-1281</Typography>
             </Stack>
             <Stack direction="column">
-                <Button variant="contained" onClick={() => goToScreen('question')}>Continue filling</Button>
+                <Button variant="contained">{i('action:download')}</Button>
             </Stack>
         </Stack>
     </Container>
