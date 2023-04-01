@@ -12,7 +12,7 @@ export const RouterContext = createContext<{ route: string, params: { [key: stri
 });
 
 export const NavigationProvider = ({children, routes}: INavigationProvider) => {
-    const [route, setRoute] = useState<string>('login');
+    const [route, setRoute] = useState<string>('welcome');
     const [params, setParams] = useState<{ [key: string]: any }>({})
 
     const goToScreen = useCallback((screen: string, params?: { [key: string]: any }) => {

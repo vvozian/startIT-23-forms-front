@@ -7,6 +7,9 @@ import {ApplicationChecklistScreen} from "./screens/ApplicationChecklistScreen";
 import {FormMainScreen} from "./screens/FormMainScreen";
 import {ActiveFormScreen} from "./screens/ActiveFormScreen";
 import {QuestionScreen} from "./screens/QuestionScreen";
+import { WelcomeScreen } from "./screens/WelcomeScreen";
+import { LanguageScreen } from "./screens/LanguageScreen";
+import { RegisterScreen } from "./screens/RegisterScreen";
 
 const theme = createTheme();
 
@@ -18,10 +21,13 @@ export const App = () => {
                 <NavigationProvider routes={{
                     'home': <HomeScreen/>,
                     'login': <LoginScreen/>,
+                    'register': <RegisterScreen />,
                     'applicationChecklist': <ApplicationChecklistScreen/>,
                     'formMain': <FormMainScreen/>,
                     'activeForm': <ActiveFormScreen/>,
-                    'question': <QuestionScreen />
+                    'question': <QuestionScreen />,
+                    'welcome': <WelcomeScreen />,
+                    'language': <LanguageScreen />
                 }
                 }/>
             </InternationalizationProvider>

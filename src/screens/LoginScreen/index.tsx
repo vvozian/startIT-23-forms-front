@@ -3,16 +3,19 @@ import {Button, Container, Stack, TextField} from "@mui/material";
 import {useNavigation} from "../../hooks/useNavigation";
 
 export const LoginScreen = () => {
-    const {i} = useInternationalization()
-    const nav = useNavigation();
+    const {i} = useInternationalization();
+    const {goToScreen} = useNavigation();
 
 
     return <Container maxWidth={false}>
         <Stack direction="column" justifyContent="center" spacing={2} minHeight="100vh" py={5}>
+            <Container className="title">{i('noun:log')}</Container>
+            <br/><br/><br/>
             <TextField size="small" label={i('noun:email')}/>
             <TextField size="small" label={i('noun:password')} type="password"/>
-            <Button variant="contained" onClick={() => nav.goToScreen('home')}>{i('action:login')}</Button>
-            <Button>{i('action:register')}</Button>
+            <br/><br/>
+            <Button variant="contained" onClick={() => goToScreen('home')}>{i('action:login')}</Button>
+            <Button onClick={() => goToScreen('register')}>{i('action:register')}</Button>
         </Stack>
     </Container>
 }

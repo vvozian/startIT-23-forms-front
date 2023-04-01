@@ -1,0 +1,22 @@
+.logo-center {
+    display: block;
+    margin: 0 auto;
+}
+
+.name-center {
+    display: block;
+    text-align: center;
+    font-size: 150%;
+}
+
+.text-center {
+    display: block;
+    text-align: center;
+    font-size: 150%; 
+}
+
+.title {
+    display: block;
+    text-align: center;
+    font-size: 2.5em;
+}
