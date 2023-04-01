@@ -1,4 +1,4 @@
-import {useCallback} from "react";
+import {SupportedLocales} from "../Providers/InternationalizationProvider";
 
 const enLang: { [key: string]: string } = {
     'action:login': 'Login',
@@ -66,12 +66,12 @@ const ruLang: { [key: string]: string } = {
     'noun:archive': 'Архив'
 }
 
-const activeInternationalizationPack = deLang;
-
-export const useInternationalization = () => {
-    const i = useCallback((token: string) => {
-        return activeInternationalizationPack[token] || token
-    }, [])
-
-    return {i}
+export const getLocaleTranslations = (locale: SupportedLocales) => {
+    if (locale === SupportedLocales.EN) return enLang;
+    if (locale === SupportedLocales.NL) return nlLang;
+    if (locale === SupportedLocales.RU) return ruLang;
+    if (locale === SupportedLocales.PL) return plLang;
+    if (locale === SupportedLocales.PT) return ptLang;
+    if (locale === SupportedLocales.DE) return deLang;
+    return enLang
 }

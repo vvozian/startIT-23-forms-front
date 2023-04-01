@@ -2,8 +2,7 @@ import {useContext} from "react";
 import {RouterContext} from "../../Providers/NavigationProvider";
 
 export const useNavigation = () => {
-    // @ts-ignore
-    const {route, goToScreen} = useContext(RouterContext);
+    const {route, goToScreen, params} = useContext(RouterContext);
 
-    return {route, goToScreen}
+    return {route, goToScreen, params}
 }

@@ -18,9 +18,11 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import GradingIcon from '@mui/icons-material/Grading';
 import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import {useInternationalization} from "../../hooks/useInternationalization";
+import {useNavigation} from "../../hooks/useNavigation";
 
-export const HomeListView = () => {
+export const HomeScreen = () => {
     const {i} = useInternationalization();
+    const {goToScreen} = useNavigation();
 
     return <Container maxWidth={false}>
         <Stack direction="column" justifyContent="start" spacing={2} height="100vh" py={2}>
@@ -32,13 +34,13 @@ export const HomeListView = () => {
                         </IconButton>
                     </InputAdornment>
                 }}/>
-                <Tabs value={1} variant="scrollable" scrollButtons>
+                <Tabs value={1} variant="scrollable" scrollButtons >
                     <Tab icon={<ListAltIcon/>} iconPosition="start" label={i('noun:allForms')} />
                     <Tab icon={<AutorenewIcon/>} iconPosition="start" label={i('noun:inProgress')}/>
                     <Tab icon={<ArchiveIcon/>} iconPosition="start" label={i('noun:archive')} />
                 </Tabs>
                 <List>
-                    <ListItemButton>
+                    <ListItemButton onClick={() =>goToScreen('applicationChecklist', {applicationId: '213120213120312-123-12-123'})}>
                         <ListItemIcon >
                             <GradingIcon />
                         </ListItemIcon>

@@ -4,17 +4,27 @@ interface INavigationProvider extends PropsWithChildren {
     routes: { [key: string]: ReactNode }
 }
 
-export const RouterContext = createContext({});
+export const RouterContext = createContext<{ route: string, params: { [key: string]: any }, goToScreen: (screen: string, params?: { [key: string]: any }) => void }>({
+    route: 'login',
+    params: {},
+    goToScreen: () => {
+    }
+});
 
 export const NavigationProvider = ({children, routes}: INavigationProvider) => {
-    const [route, setRoute] = useState<string | null>('login');
+    const [route, setRoute] = useState<string>('login');
+    const [params, setParams] = useState<{ [key: string]: any }>({})
 
-    const goToScreen = useCallback((screen: string) => {
-        if (routes[screen]) setRoute(screen)
+    const goToScreen = useCallback((screen: string, params?: { [key: string]: any }) => {
+        if (routes[screen]) {
+            setParams(params || {})
+            setRoute(screen)
+        }
     }, [setRoute])
 
     const value = {
         route,
+        params,
         goToScreen
     }
 
