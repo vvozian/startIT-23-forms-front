@@ -7,11 +7,11 @@ import {useNavigation} from "../../hooks/useNavigation";
 
 export const QuestionScreen = () => {
     const {i} = useInternationalization();
-    const {goToScreen, params} = useNavigation();
+    const {goToScreen, params: {activeFormContext}} = useNavigation();
 
     const goBackAction: IBasicTopBarAction = {
         icon: <ArrowBackIcon />,
-        onClick: () => goToScreen('activeForm')
+        onClick: () => goToScreen('activeForm', {formProcessId: activeFormContext, formId: '123'})
     }
 
     const infoAction: IBasicTopBarAction = {
@@ -21,13 +21,13 @@ export const QuestionScreen = () => {
 
     const _devNextQuestion = () => {
         if (Math.random() >0.75) goToScreen('completedForm')
-        else goToScreen('question', {questionId: (params.questionId || 0) + 1})
+        else goToScreen('question')
     }
 
     return <Container>
         <Stack direction="column" justifyContent="space-between" spacing={2} minHeight="100vh" pb={2}>
             <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={"28%"}/>
-            <Typography>This is a question with {params.questionId} id</Typography>
+            <Typography>This is a question</Typography>
             <Stack direction="column" spacing={1}>
                 <TextField size="small" placeholder={i('noun:yourAnswer')}/>
                 <Button variant="contained" onClick={_devNextQuestion}>{i('noun:next')}</Button>

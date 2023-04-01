@@ -5,28 +5,19 @@ import {
     Container,
     Divider,
     IconButton,
-    InputAdornment,
-    List, ListItem,
-    ListItemButton,
-    ListItemIcon, ListItemText,
-    Stack,
-    Tab,
-    Tabs,
-    TextField
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Stack
 } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import ListAltIcon from "@mui/icons-material/ListAlt";
-import AutorenewIcon from "@mui/icons-material/Autorenew";
-import ArchiveIcon from "@mui/icons-material/Archive";
-import GradingIcon from "@mui/icons-material/Grading";
-import DocumentScannerIcon from "@mui/icons-material/DocumentScanner";
 import {BasicTopBar, IBasicTopBarAction} from "../../components/BasicTopBar";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 export const ApplicationChecklistScreen = () => {
     const {i} = useInternationalization();
-    const {params: {applicationId}, goToScreen} = useNavigation();
+    const {params: {applicationId, applicationProcessId}, goToScreen} = useNavigation();
 
     const goBackAction: IBasicTopBarAction = {
         icon: <ArrowBackIcon />,
@@ -36,7 +27,7 @@ export const ApplicationChecklistScreen = () => {
     return <Container maxWidth={false}>
         <Stack direction="column" justifyContent="start" spacing={2} height="100vh" pb={2}>
             <Stack>
-                <BasicTopBar leftAction={goBackAction} title={"Work permit application"}/>
+                <BasicTopBar leftAction={goBackAction} title={`${applicationProcessId} | ${applicationId}`}/>
                 <List disablePadding>
                     <ListItem>
                         <ListItemIcon>
@@ -83,7 +74,7 @@ export const ApplicationChecklistScreen = () => {
                     </ListItem>
                     <Divider variant="fullWidth" component="li"/>
                     <ListItem secondaryAction={
-                        <IconButton edge="end" onClick={() => goToScreen('formMain')}>
+                        <IconButton edge="end" onClick={() => goToScreen('formMain', {formId: 'F-3311'})}>
                             <InfoOutlinedIcon />
                         </IconButton>
                     }>
@@ -98,7 +89,7 @@ export const ApplicationChecklistScreen = () => {
                     </ListItem>
                     <Divider variant="fullWidth" component="li"/>
                     <ListItem secondaryAction={
-                        <IconButton edge="end" onClick={() => goToScreen('formMain')}>
+                        <IconButton edge="end" onClick={() => goToScreen('formMain', {formId: 'F-1241'})}>
                             <InfoOutlinedIcon />
                         </IconButton>
                     }>

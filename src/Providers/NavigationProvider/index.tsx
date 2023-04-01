@@ -1,10 +1,17 @@
 import {createContext, PropsWithChildren, ReactNode, useCallback, useState} from "react";
 
+type RouterContextType = {
+    route: string;
+    params: { [key: string]: any };
+    goToScreen: (screen: string, params?: { [key: string]: any }) => void;
+}
+
+
 interface INavigationProvider extends PropsWithChildren {
     routes: { [key: string]: ReactNode }
 }
 
-export const RouterContext = createContext<{ route: string, params: { [key: string]: any }, goToScreen: (screen: string, params?: { [key: string]: any }) => void }>({
+export const RouterContext = createContext<RouterContextType>({
     route: 'login',
     params: {},
     goToScreen: () => {

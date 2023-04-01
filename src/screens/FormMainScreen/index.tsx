@@ -20,12 +20,12 @@ export const FormMainScreen = () => {
             <BasicTopBar leftAction={goBackAction} title={"Form"}/>
             <Stack direction="column" alignItems={"center"}>
                 <DescriptionIcon sx={{fontSize: 200}} color="primary"/>
-                <Typography variant="h4">F-1281</Typography>
+                <Typography variant="h4">{formId}</Typography>
             </Stack>
             <Stack direction="column">
-                <Button>About the form</Button>
-                <Button>Translate</Button>
-                <Button variant="contained">Start filling form</Button>
+                <Button>{i('noun:aboutTheForm')}</Button>
+                <Button>{i('noun:translation')}</Button>
+                <Button variant="contained">{i('action:startFillingTheForm')}</Button>
             </Stack>
         </Stack>
     </Container>
