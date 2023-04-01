@@ -11,7 +11,7 @@ export const QuestionScreen = () => {
 
     const goBackAction: IBasicTopBarAction = {
         icon: <ArrowBackIcon />,
-        onClick: () => console.log(">>> went back")
+        onClick: () => goToScreen('activeForm')
     }
 
     const infoAction: IBasicTopBarAction = {
