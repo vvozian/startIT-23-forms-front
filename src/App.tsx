@@ -10,6 +10,7 @@ import {QuestionScreen} from "./screens/QuestionScreen";
 import { WelcomeScreen } from "./screens/WelcomeScreen";
 import { LanguageScreen } from "./screens/LanguageScreen";
 import { RegisterScreen } from "./screens/RegisterScreen";
+import {ReadyFormScreen} from "./screens/ReadyFormScreen";
 
 const theme = createTheme();
 

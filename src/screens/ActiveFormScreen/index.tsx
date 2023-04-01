@@ -8,7 +8,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 export const ActiveFormScreen = () => {
     const {i} = useInternationalization();
-    const {params: {formFillId}, goToScreen} = useNavigation();
+    const {params: {formProcessId, formId}, goToScreen} = useNavigation();
 
     const goBackAction: IBasicTopBarAction = {
         icon: <ArrowBackIcon/>,
@@ -16,19 +16,19 @@ export const ActiveFormScreen = () => {
     }
 
     const infoAction: IBasicTopBarAction = {
-        icon: <InfoOutlinedIcon />,
-        onClick: () => goToScreen('formMain')
+        icon: <InfoOutlinedIcon/>,
+        onClick: () => goToScreen('formMain', {formId})
     }
 
     return <Container maxWidth={false}>
-        <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" py={2}>
-            <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={"10%"}/>
+        <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" pb={2}>
+            <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={formProcessId}/>
             <Stack direction="column" alignItems={"center"}>
                 <DescriptionIcon sx={{fontSize: 200}} color="primary"/>
-                <Typography variant="h4">F-1281</Typography>
+                <Typography variant="h4">{formId}</Typography>
             </Stack>
             <Stack direction="column">
-                <Button variant="contained" onClick={() => goToScreen('question')}>Continue filling</Button>
+                <Button variant="contained" onClick={() => goToScreen('question', {activeFormContext: '123213123-123213123'})}>Continue filling</Button>
             </Stack>
         </Stack>
     </Container>
