@@ -30,36 +30,6 @@ const enLang: { [key: string]: string } = {
     'noun:phone': 'Phone number',
 }
 
-const deLang: { [key: string]: string } = {
-    'action:login': 'Anmelden',
-    'action:register': 'Registrieren',
-    'action:polish': 'Polnisch',
-    'action:english': 'Englisch',
-    'action:german': 'Deutsch',
-    'action:portuguese': 'Portugiesisch',
-    'action:nedeland': 'Niederländisch',
-    'action:russian': 'Russisch',
-    'noun:log': 'Anmeldung',
-    'noun:reg': 'Registrierung',
-    'noun:language': 'Sprache auswählen',
-    'noun:email': "E-Mail",
-    'noun:password': "Passwort",
-    'noun:confirm': 'Passwort bestätigen',
-    'noun:search': "Suche",
-    'noun:allForms': "Alle Formulare",
-    'noun:inProgress': "In Bearbeitung",
-    'noun:archive': 'Archiv',
-    'noun:IDnumber': 'Ausweisnummer',
-    'noun:names':'Vorname',
-    'noun:surname': 'Nachname',
-    'noun:birthdate': 'Geburtsdatum',
-    'noun:country': 'Nationalität',
-    'noun:city': 'Stadt',
-    'noun:street-number': 'Straße, Hausnummer',
-    'noun:zipcode': 'Postleitzahl',
-    'noun:phone': 'Telefonnummer',
-}
-
 const plLang: { [key: string]: string } = {
     'action:login': 'Zaloguj się',
     'action:register': 'Zarejestruj się',
@@ -88,6 +58,36 @@ const plLang: { [key: string]: string } = {
     'noun:street-number': 'Ulica, numer',
     'noun:zipcode': 'Kod pocztowy',
     'noun:phone': 'Numer telefonu',
+}
+
+const deLang: { [key: string]: string } = {
+    'action:login': 'Anmelden',
+    'action:register': 'Registrieren',
+    'action:polish': 'Polnisch',
+    'action:english': 'Englisch',
+    'action:german': 'Deutsch',
+    'action:portuguese': 'Portugiesisch',
+    'action:nedeland': 'Niederländisch',
+    'action:russian': 'Russisch',
+    'noun:log': 'Anmeldung',
+    'noun:reg': 'Registrierung',
+    'noun:language': 'Sprache auswählen',
+    'noun:email': "E-Mail",
+    'noun:password': "Passwort",
+    'noun:confirm': 'Passwort bestätigen',
+    'noun:search': "Suche",
+    'noun:allForms': "Alle Formulare",
+    'noun:inProgress': "In Bearbeitung",
+    'noun:archive': 'Archiv',
+    'noun:IDnumber': 'Ausweisnummer',
+    'noun:names':'Vorname',
+    'noun:surname': 'Nachname',
+    'noun:birthdate': 'Geburtsdatum',
+    'noun:country': 'Nationalität',
+    'noun:city': 'Stadt',
+    'noun:street-number': 'Straße, Hausnummer',
+    'noun:zipcode': 'Postleitzahl',
+    'noun:phone': 'Telefonnummer',
 }
 
 const ptLang: { [key: string]: string } = {
