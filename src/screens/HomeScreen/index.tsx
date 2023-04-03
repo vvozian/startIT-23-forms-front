@@ -8,6 +8,7 @@ import {useNavigation} from "../../hooks/useNavigation";
 import {ActiveFormsView} from "./ActiveFormsView";
 import {useMemo, useState} from "react";
 import {AllFormsView} from "./AllFormsView";
+import {ArchiveFormsView} from "./ArchiveFormsView";
 
 enum FormListsView {
     All,
@@ -27,7 +28,7 @@ export const HomeScreen = () => {
             case FormListsView.Active:
                 return () => <ActiveFormsView/>;
             case FormListsView.Archive:
-                return () => <ActiveFormsView/>;
+                return () => <ArchiveFormsView/>;
         }
         return () => <ActiveFormsView/>
     }, [activeTab])

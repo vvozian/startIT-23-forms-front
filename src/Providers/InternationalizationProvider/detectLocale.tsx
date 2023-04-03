@@ -1,8 +1,6 @@
 import {SupportedLocales} from "./index";
 
-export const detectLocale: () => SupportedLocales = () => {
-    const locales = window.navigator.languages;
-
+const tryParseLocale = (locales: readonly string[]) => {
     for (let locale of locales) {
         if (/^ar\b/.test(locale)) return SupportedLocales.AR;
         if (/^fa\b/.test(locale)) return SupportedLocales.FA;
@@ -18,5 +16,15 @@ export const detectLocale: () => SupportedLocales = () => {
         if (/^de\b/.test(locale)) return SupportedLocales.DE;
     }
 
-    return SupportedLocales.EN
+    return null
+}
+
+export const detectLocale: () => { locale: SupportedLocales, wasStoredLocally: boolean } = () => {
+    const storedLocale = localStorage.getItem('locale');
+    const parsedLocale = tryParseLocale([(storedLocale || '')]);
+
+    if (parsedLocale) return {locale: parsedLocale, wasStoredLocally: true}
+
+    const locales = window.navigator.languages;
+    return {locale: tryParseLocale(locales) || SupportedLocales.EN, wasStoredLocally: false}
 }

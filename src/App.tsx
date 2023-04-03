@@ -26,6 +26,7 @@ export const App = () => {
                     'applicationChecklist': <ApplicationChecklistScreen/>,
                     'formMain': <FormMainScreen/>,
                     'activeForm': <ActiveFormScreen/>,
+                    'completedForm': <ReadyFormScreen />,
                     'question': <QuestionScreen />,
                     'welcome': <WelcomeScreen />,
                     'language': <LanguageScreen />
