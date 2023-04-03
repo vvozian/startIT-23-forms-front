@@ -1,7 +1,5 @@
-import {createContext, PropsWithChildren, useState} from "react";
+import {createContext, PropsWithChildren, useCallback, useMemo, useState} from "react";
 import {detectLocale} from "./detectLocale";
-
-export const InternationalizationContext = createContext({});
 
 export enum SupportedLocales {
     AR = 'ar',
@@ -18,10 +16,27 @@ export enum SupportedLocales {
     DE = 'de'
 }
 
-export const InternationalizationProvider = ({children}: PropsWithChildren) => {
-    const [locale, setLocale] = useState<SupportedLocales>(detectLocale())
 
-    const value = {locale}
+type InternationalizationContextType = {
+    locale: SupportedLocales;
+    setLocale: (locale: SupportedLocales) => void;
+    wasStoredLocally: boolean;
+}
+
+export const InternationalizationContext = createContext<InternationalizationContextType>({
+    locale: SupportedLocales.EN,
+    setLocale: () => null,
+    wasStoredLocally: false
+});
+
+export const InternationalizationProvider = ({children}: PropsWithChildren) => {
+    const initialLocale = useMemo(() => detectLocale(), []);
+    const [locale, setLocale] = useState<SupportedLocales>(initialLocale.locale);
+
+    const setStoredLocale = useCallback((newLocale: SupportedLocales) => {
+        setLocale(newLocale);
+    }, [])
+    const value = {locale, setLocale: setStoredLocale, wasStoredLocally: initialLocale.wasStoredLocally}
 
     return <InternationalizationContext.Provider value={value}>
         {children}

@@ -1,4 +1,4 @@
-import "C:/StartIT/src/App.css"
+import '../../App.css'
 import {Button, Container, Stack, TextField, Typography} from "@mui/material";
 import {useInternationalization} from "../../hooks/useInternationalization";
 import {useNavigation} from "../../hooks/useNavigation";

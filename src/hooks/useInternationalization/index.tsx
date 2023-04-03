@@ -4,8 +4,7 @@ import {getLocaleTranslations} from "../../utils/getLocaleTranslations";
 
 
 export const useInternationalization = () => {
-    //@ts-ignore
-    const {locale} = useContext(InternationalizationContext);
+    const {locale, setLocale, wasStoredLocally} = useContext(InternationalizationContext);
 
     const bundle = useMemo(() => {
         return getLocaleTranslations(locale)
@@ -15,5 +14,5 @@ export const useInternationalization = () => {
         return bundle[token] || token
     }, [bundle])
 
-    return {i}
+    return {i, setLocale, wasStoredLocally}
 }
