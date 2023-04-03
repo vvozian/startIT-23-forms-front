@@ -16,6 +16,8 @@ export const LoginScreen = () => {
             <br/><br/>
             <Button variant="contained" onClick={() => goToScreen('home')}>{i('action:login')}</Button>
             <Button onClick={() => goToScreen('register')}>{i('action:register')}</Button>
+            <Button onClick={() => goToScreen('profile')}>{i('action:profile')}</Button>
+
         </Stack>
     </Container>
 }

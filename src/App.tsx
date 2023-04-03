@@ -11,6 +11,9 @@ import { WelcomeScreen } from "./screens/WelcomeScreen";
 import { LanguageScreen } from "./screens/LanguageScreen";
 import { RegisterScreen } from "./screens/RegisterScreen";
 import {ReadyFormScreen} from "./screens/ReadyFormScreen";
+import { ProfileScreen } from "./screens/ProfileScreen";
+import { EditScreen } from "./screens/EditScreen";
+import SimpleBottomNavigation from "./screens/BottomNavigation";
 
 const theme = createTheme();
 
@@ -29,10 +32,13 @@ export const App = () => {
                     'completedForm': <ReadyFormScreen />,
                     'question': <QuestionScreen />,
                     'welcome': <WelcomeScreen />,
-                    'language': <LanguageScreen />
+                    'language': <LanguageScreen />,
+                    'profile': <ProfileScreen />,
+                    'edit': <EditScreen />
                 }
                 }/>
             </InternationalizationProvider>
+            {/* <SimpleBottomNavigation /> */}
         </ThemeProvider>
     </>
 }

@@ -1,7 +1,7 @@
 import '../../App.css'
-import {Button, Container, Stack, TextField, Typography} from "@mui/material";
-import {useInternationalization} from "../../hooks/useInternationalization";
-import {useNavigation} from "../../hooks/useNavigation";
+import { Container, Stack } from "@mui/material";
+import { useInternationalization } from "../../hooks/useInternationalization";
+import { useNavigation } from "../../hooks/useNavigation";
 import { useEffect } from "react";
 
 export const WelcomeScreen = () => {
@@ -10,7 +10,7 @@ export const WelcomeScreen = () => {
 
     useEffect(() => {
         const redirectTimer = setTimeout(() => {
-            goToScreen('language');
+            goToScreen('login');
         }, 3000);
         
         return () => clearTimeout(redirectTimer);
