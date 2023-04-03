@@ -9,12 +9,12 @@ export const LanguageScreen = () => {
     const {i, setLocale, wasStoredLocally} = useInternationalization();
     const {goToScreen} = useNavigation();
 
-    if (wasStoredLocally) goToScreen('home')
+    if (wasStoredLocally) goToScreen('login')
 
     const onLanguageChoice = useCallback((locale: SupportedLocales) => {
         setLocale(locale);
         localStorage.setItem('locale', locale);
-        goToScreen('home');
+        goToScreen('login');
     }, []);
 
     return <Container maxWidth={false}>
