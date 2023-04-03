@@ -16,7 +16,7 @@ export const ProfileScreen = () => {
 
     const goChangeLanguage: IBasicTopBarAction = {
         icon: <LanguageIcon />,
-        onClick: () => goToScreen('language')
+        onClick: () => {localStorage.removeItem('locale');goToScreen('language')}
     }    
 
     return <Container maxWidth={false}>

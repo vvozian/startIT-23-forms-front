@@ -10,7 +10,7 @@ export const WelcomeScreen = () => {
 
     useEffect(() => {
         const redirectTimer = setTimeout(() => {
-            goToScreen('login');
+            goToScreen('language');
         }, 3000);
         
         return () => clearTimeout(redirectTimer);
