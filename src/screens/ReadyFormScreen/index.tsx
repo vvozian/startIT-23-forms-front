@@ -8,7 +8,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 export const ReadyFormScreen = () => {
     const {i} = useInternationalization();
-    const {params: {formFillId}, goToScreen} = useNavigation();
+    const {params: {completedFormId}, goToScreen} = useNavigation();
 
     const goBackAction: IBasicTopBarAction = {
         icon: <ArrowBackIcon/>,
@@ -22,7 +22,7 @@ export const ReadyFormScreen = () => {
 
     return <Container maxWidth={false}>
         <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" pb={2}>
-            <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={i('noun:completedForm')}/>
+            <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={i(completedFormId)}/>
             <Stack direction="column" alignItems={"center"}>
                 <DescriptionIcon sx={{fontSize: 200}} color="primary"/>
                 <Typography variant="h4">F-1281</Typography>
