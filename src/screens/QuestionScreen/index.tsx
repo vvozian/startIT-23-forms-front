@@ -11,16 +11,17 @@ import {BooleanAnswerInputView} from "./BooleanAnswerInputView";
 import {useCallback} from "react";
 import {NumericAnswerInputView} from "./NumericAnswerInputView";
 import {AlphaAnswerInputView} from "./AlphaAnswerInputView";
+import {LoadingOverlay} from "../../components/LoadingOverlay";
 
 export const QuestionScreen = () => {
     const {i} = useInternationalization();
     const {goToScreen, params: {formProcessId, questionId}} = useNavigation();
 
-    const {data} = useQuery(GET_QUESTION, {variables: {id: questionId}});
+    const {data, loading} = useQuery(GET_QUESTION, {variables: {id: questionId}});
 
-    const [answerBoolQuestionMutation] = useMutation(ANSWER_BOOL_QUESTION)
-    const [answerNumericQuestionMutation] = useMutation(ANSWER_NUMERIC_QUESTION)
-    const [answerAlphaQuestionMutation] = useMutation(ANSWER_ALPHA_QUESTION)
+    const [answerBoolQuestionMutation, {loading: submittingBoolAnswer}] = useMutation(ANSWER_BOOL_QUESTION)
+    const [answerNumericQuestionMutation, {loading: submittingNumericAnswer}] = useMutation(ANSWER_NUMERIC_QUESTION)
+    const [answerAlphaQuestionMutation, {loading: submittingAlphaAnswer}] = useMutation(ANSWER_ALPHA_QUESTION)
 
     const answerBoolQuestion = useCallback((answer: boolean) => {
         answerBoolQuestionMutation({variables: {answer, questionId, activeFormId: formProcessId}}).then(r => {
@@ -68,18 +69,18 @@ export const QuestionScreen = () => {
         onClick: () => console.log(">>> help")
     }
 
-    const _devNextQuestion = () => {
-        if (Math.random() > 0.75) goToScreen('completedForm')
-        else goToScreen('question')
-    }
+    if (submittingBoolAnswer || submittingAlphaAnswer || submittingNumericAnswer || loading) return <LoadingOverlay/>
 
     return <Container>
         <Stack direction="column" justifyContent="space-between" spacing={2} minHeight="100vh" pb={2}>
             <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={"28%"}/>
             <Typography>{data?.question?.content}</Typography>
-            {data?.question?.answerType === 'BOOL' && <BooleanAnswerInputView onSubmit={(value) => answerBoolQuestion(value)} onSkip={() => null}/>}
-            {data?.question?.answerType === 'NUMERIC' && <NumericAnswerInputView onSubmit={(value) => answerNumericQuestion(value)} onSkip={() => null} />}
-            {data?.question?.answerType === 'ALPHA' && <AlphaAnswerInputView onSubmit={(value) => answerAlphaQuestion(value)} onSkip={() => null} />}
+            {data?.question?.answerType === 'BOOL' &&
+                <BooleanAnswerInputView onSubmit={(value) => answerBoolQuestion(value)} onSkip={() => null}/>}
+            {data?.question?.answerType === 'NUMERIC' &&
+                <NumericAnswerInputView onSubmit={(value) => answerNumericQuestion(value)} onSkip={() => null}/>}
+            {data?.question?.answerType === 'ALPHA' &&
+                <AlphaAnswerInputView onSubmit={(value) => answerAlphaQuestion(value)} onSkip={() => null}/>}
         </Stack>
     </Container>
 }

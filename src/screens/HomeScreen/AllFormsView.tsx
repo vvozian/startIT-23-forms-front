@@ -4,12 +4,15 @@ import {useInternationalization} from "../../hooks/useInternationalization";
 import {useNavigation} from "../../hooks/useNavigation";
 import {useQuery} from "@apollo/client";
 import {GET_ALL_FORMS} from "./queries";
+import {LoadingOverlay} from "../../components/LoadingOverlay";
 
 export const AllFormsView = () => {
     const {i} = useInternationalization();
     const {goToScreen} = useNavigation();
 
-    const {data} = useQuery(GET_ALL_FORMS);
+    const {data, loading} = useQuery(GET_ALL_FORMS);
+
+    if (loading) return <LoadingOverlay/>
 
     return <List>
         {data?.allForms?.map((form: any) => {

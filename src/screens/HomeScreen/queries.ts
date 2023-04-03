@@ -13,18 +13,18 @@ export const GET_ALL_FORMS = gql`
 `;
 
 export const GET_ACTIVE_FORMS = gql`
- query  {
-     activeForms {
-         id
-         form {
-             id
-             formId
-             subtitle
-             title
-         }
-         progress
-     }
- }  
+    query  {
+        activeForms {
+            id
+            form {
+                id
+                formId
+                subtitle
+                title
+            }
+            progress
+        }
+    }
 `
 
 export const GET_ACTIVE_FORM = gql`
@@ -40,5 +40,20 @@ export const GET_ACTIVE_FORM = gql`
             progress
             nextQuestionId
         }
-    }   
+    }
+`
+
+export const GET_ARCHIVED_FORMS = gql`
+    query {
+        archivedForms {
+            id
+            downloadLink
+            form {
+                id
+                title
+                formId
+                subtitle
+            }
+        }
+    }
 `

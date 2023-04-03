@@ -7,12 +7,13 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import {useQuery} from "@apollo/client";
 import {GET_ACTIVE_FORM} from "../HomeScreen/queries";
+import {LoadingOverlay} from "../../components/LoadingOverlay";
 
 export const ActiveFormScreen = () => {
     const {i} = useInternationalization();
     const {params: {formProcessId}, goToScreen} = useNavigation();
 
-    const {data} = useQuery(GET_ACTIVE_FORM, {variables: {id: formProcessId}});
+    const {data, loading} = useQuery(GET_ACTIVE_FORM, {variables: {id: formProcessId}});
 
     const goBackAction: IBasicTopBarAction = {
         icon: <ArrowBackIcon/>,
@@ -24,6 +25,8 @@ export const ActiveFormScreen = () => {
         onClick: data?.activeForm?.form?.id ? () => goToScreen('formMain', {formId: data?.activeForm?.form?.id}) : () => null
     }
 
+    if (loading) return <LoadingOverlay/>
+
     return <Container maxWidth={false}>
         <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" pb={2}>
             <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={`#${data?.activeForm?.id}`}/>
@@ -33,7 +36,10 @@ export const ActiveFormScreen = () => {
             </Stack>
             <Stack direction="column">
                 <Button variant="contained"
-                        onClick={() => goToScreen('question', {formProcessId: data?.activeForm?.form?.id, questionId: data?.activeForm?.nextQuestionId})}>Continue
+                        onClick={() => goToScreen('question', {
+                            formProcessId: data?.activeForm?.id,
+                            questionId: data?.activeForm?.nextQuestionId
+                        })}>Continue
                     filling</Button>
             </Stack>
         </Stack>
