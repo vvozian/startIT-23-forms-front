@@ -3,9 +3,6 @@ import {SupportedLocales} from "./index";
 export const detectLocale: () => SupportedLocales = () => {
     const locales = window.navigator.languages;
 
-    console.log(">>>", locales)
-
-
     for (let locale of locales) {
         if (/^ar\b/.test(locale)) return SupportedLocales.AR;
         if (/^fa\b/.test(locale)) return SupportedLocales.FA;

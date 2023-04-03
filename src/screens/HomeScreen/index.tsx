@@ -1,28 +1,36 @@
-import {
-    Container,
-    Divider,
-    IconButton,
-    InputAdornment,
-    List,
-    ListItemButton, ListItemIcon,
-    ListItemText,
-    Stack,
-    Tab,
-    Tabs,
-    TextField
-} from "@mui/material";
+import {Container, IconButton, InputAdornment, Stack, Tab, Tabs, TextField} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import ArchiveIcon from '@mui/icons-material/Archive';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 import ListAltIcon from '@mui/icons-material/ListAlt';
-import GradingIcon from '@mui/icons-material/Grading';
-import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import {useInternationalization} from "../../hooks/useInternationalization";
 import {useNavigation} from "../../hooks/useNavigation";
+import {ActiveFormsView} from "./ActiveFormsView";
+import {useMemo, useState} from "react";
+import {AllFormsView} from "./AllFormsView";
+
+enum FormListsView {
+    All,
+    Active,
+    Archive
+}
 
 export const HomeScreen = () => {
     const {i} = useInternationalization();
-    const {goToScreen} = useNavigation();
+    const {goToScreen, params: {homeTab}} = useNavigation();
+    const [activeTab, setActiveTab] = useState<FormListsView>(FormListsView.Active);
+
+    const ListView = useMemo(() => {
+        switch (activeTab) {
+            case FormListsView.All:
+                return () => <AllFormsView/>;
+            case FormListsView.Active:
+                return () => <ActiveFormsView/>;
+            case FormListsView.Archive:
+                return () => <ActiveFormsView/>;
+        }
+        return () => <ActiveFormsView/>
+    }, [activeTab])
 
     return <Container maxWidth={false}>
         <Stack direction="column" justifyContent="start" spacing={2} height="100vh" py={2}>
@@ -34,47 +42,15 @@ export const HomeScreen = () => {
                         </IconButton>
                     </InputAdornment>
                 }}/>
-                <Tabs value={1} variant="scrollable" scrollButtons >
-                    <Tab icon={<ListAltIcon/>} iconPosition="start" label={i('noun:allForms')} />
-                    <Tab icon={<AutorenewIcon/>} iconPosition="start" label={i('noun:inProgress')}/>
-                    <Tab icon={<ArchiveIcon/>} iconPosition="start" label={i('noun:archive')} />
+                <Tabs value={activeTab} variant="scrollable" scrollButtons onChange={(e, tab) => setActiveTab(tab)}>
+                    <Tab value={FormListsView.All} icon={<ListAltIcon/>} iconPosition="start"
+                         label={i('noun:allForms')}/>
+                    <Tab value={FormListsView.Active} icon={<AutorenewIcon/>} iconPosition="start"
+                         label={i('noun:inProgress')}/>
+                    <Tab value={FormListsView.Archive} icon={<ArchiveIcon/>} iconPosition="start"
+                         label={i('noun:archive')}/>
                 </Tabs>
-                <List>
-                    <ListItemButton onClick={() =>goToScreen('applicationChecklist', {applicationId: '213120213120312-123-12-123', applicationProcessId: '23431-21312'})}>
-                        <ListItemIcon >
-                            <GradingIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Work permit application" secondary="#110319312 | 10%"/>
-                    </ListItemButton>
-                    <Divider variant="fullWidth" component="li"/>
-                    <ListItemButton onClick={() => goToScreen('activeForm', {formId: 'F-21312', formProcessId: '110319312'})}>
-                        <ListItemIcon >
-                            <DocumentScannerIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="F-21312" secondary="#110319312 | 10%"/>
-                    </ListItemButton>
-                    <Divider variant="fullWidth" component="li"/>
-                    <ListItemButton>
-                        <ListItemIcon >
-                            <DocumentScannerIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="F-332" secondary="#110319312 | 10%"/>
-                    </ListItemButton>
-                    <Divider variant="fullWidth" component="li"/>
-                    <ListItemButton>
-                        <ListItemIcon >
-                            <GradingIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Visa application" secondary="#110319312 | 10%"/>
-                    </ListItemButton>
-                    <Divider variant="fullWidth" component="li"/>
-                    <ListItemButton>
-                        <ListItemIcon >
-                            <DocumentScannerIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="F-23" secondary="#110319312 | 10%"/>
-                    </ListItemButton>
-                </List>
+                <ListView/>
             </Stack>
         </Stack>
     </Container>
