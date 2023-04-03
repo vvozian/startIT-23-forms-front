@@ -8,7 +8,10 @@ const enLang: { [key: string]: string } = {
     'noun:search': "Search",
     'noun:allForms': "All forms",
     'noun:inProgress': "In progress",
-    'noun:archive': 'Archive'
+    'noun:archive': 'Archive',
+    'noun:aboutTheForm': 'About the form',
+    'noun:translation': 'Translation',
+    'action:startFillingTheForm': 'Start filling the form'
 }
 
 const plLang: { [key: string]: string } = {
