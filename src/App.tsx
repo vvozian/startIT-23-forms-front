@@ -15,7 +15,7 @@ import {ReadyFormScreen} from "./screens/ReadyFormScreen";
 
 const theme = createTheme();
 const client = new ApolloClient({
-    uri: 'http://localhost:4000',
+    uri: 'http://192.168.45.194:4000',
     cache: new InMemoryCache(),
 });
 
