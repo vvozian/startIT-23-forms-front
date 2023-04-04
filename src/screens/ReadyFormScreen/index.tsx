@@ -21,7 +21,7 @@ export const ReadyFormScreen = () => {
     }
 
     return <Container maxWidth={false}>
-        <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" pb={2}>
+        <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" pb={10}>
             <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={i('noun:completedForm')}/>
             <Stack direction="column" alignItems={"center"}>
                 <DescriptionIcon sx={{fontSize: 200}} color="primary"/>

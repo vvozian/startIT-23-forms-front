@@ -25,7 +25,7 @@ export const QuestionScreen = () => {
     }
 
     return <Container>
-        <Stack direction="column" justifyContent="space-between" spacing={2} minHeight="100vh" pb={2}>
+        <Stack direction="column" justifyContent="space-between" spacing={2} minHeight="100vh" pb={10}>
             <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={"28%"}/>
             <Typography>This is a question</Typography>
             <Stack direction="column" spacing={1}>

@@ -21,7 +21,7 @@ export const ActiveFormScreen = () => {
     }
 
     return <Container maxWidth={false}>
-        <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" pb={2}>
+        <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" pb={10}>
             <BasicTopBar leftAction={goBackAction} rightAction={infoAction} title={formProcessId}/>
             <Stack direction="column" alignItems={"center"}>
                 <DescriptionIcon sx={{fontSize: 200}} color="primary"/>

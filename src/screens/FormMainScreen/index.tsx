@@ -15,8 +15,8 @@ export const FormMainScreen = () => {
         onClick: () => goToScreen('home')
     }
 
-    return <Container maxWidth={false} sx={{pb: 6}}>
-        <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" pb={2}>
+    return <Container maxWidth={false}>
+        <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" pb={10}>
             <BasicTopBar leftAction={goBackAction} title={"Form"}/>
             <Stack direction="column" alignItems={"center"}>
                 <DescriptionIcon sx={{fontSize: 200}} color="primary"/>
@@ -25,7 +25,7 @@ export const FormMainScreen = () => {
             <Stack direction="column">
                 <Button>{i('noun:aboutTheForm')}</Button>
                 <Button>{i('noun:translation')}</Button>
-                <Button variant="contained">{i('action:startFillingTheForm')}</Button>
+                <Button variant="contained" onClick={() => goToScreen('question', {activeFormContext: '123213123-123213123'})}>{i('action:startFillingTheForm')}</Button>
             </Stack>
         </Stack>
     </Container>
