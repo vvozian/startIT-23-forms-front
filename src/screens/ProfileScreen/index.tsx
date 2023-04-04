@@ -19,124 +19,126 @@ export const ProfileScreen = () => {
         onClick: () => {localStorage.removeItem('locale');goToScreen('language')}
     }    
 
-    return <Container maxWidth={false}>
-        <Stack direction="column" justifyContent="center" spacing={2} minHeight="100vh" py={5}>
-            <BasicTopBar leftAction={goBackAction} rightAction={goChangeLanguage}/>
-            <Container className="title">{i('action:profile')}</Container>
-            <br/><br/><br/>
-            <List>
-                <ListItem>
-                    <Grid container spacing={2}>
-                        <Grid item xs={5}>
-                            <Container>{i('noun:IDnumber')}</Container>
+    return( 
+        <Container maxWidth={false}>
+            <Stack direction="column" justifyContent="center" spacing={2} minHeight="100vh" py={5}>
+                <BasicTopBar leftAction={goBackAction} rightAction={goChangeLanguage}/>
+                <Container className="title">{i('action:profile')}</Container>
+                <br/><br/><br/>
+                <List>
+                    <ListItem>
+                        <Grid container spacing={2}>
+                            <Grid item xs={5}>
+                                <Container>{i('noun:IDnumber')}</Container>
+                            </Grid>
+                            <Grid item xs="auto">
+                                <Container>ABC123456</Container>
+                            </Grid>               
                         </Grid>
-                        <Grid item xs="auto">
-                            <Container>variable width content</Container>
-                        </Grid>               
-                    </Grid>
-                </ListItem>
-                <ListItem>
-                    <Grid container spacing={2}>
-                        <Grid item xs={5}>
-                            <Container>{i('noun:names')}</Container>
+                    </ListItem>
+                    <ListItem>
+                        <Grid container spacing={2}>
+                            <Grid item xs={5}>
+                                <Container>{i('noun:names')}</Container>
+                            </Grid>
+                            <Grid item xs="auto">
+                                <Container>John Edward</Container>
+                            </Grid>               
                         </Grid>
-                        <Grid item xs="auto">
-                            <Container>variable width content</Container>
-                        </Grid>               
-                    </Grid>
-                </ListItem>
-                <ListItem>
-                    <Grid container spacing={2}>
-                        <Grid item xs={5}>
-                            <Container>{i('noun:surname')}</Container>
+                    </ListItem>
+                    <ListItem>
+                        <Grid container spacing={2}>
+                            <Grid item xs={5}>
+                                <Container>{i('noun:surname')}</Container>
+                            </Grid>
+                            <Grid item xs="auto">
+                                <Container>Doe</Container>
+                            </Grid>               
                         </Grid>
-                        <Grid item xs="auto">
-                            <Container>variable width content</Container>
-                        </Grid>               
-                    </Grid>
-                </ListItem>
-                <ListItem>
-                    <Grid container spacing={1}>
-                        <Grid item xs={5.1}>
-                            <Container>{i('noun:birthdate')}</Container>
+                    </ListItem>
+                    <ListItem>
+                        <Grid container spacing={1}>
+                            <Grid item xs={5.1}>
+                                <Container>{i('noun:birthdate')}</Container>
+                            </Grid>
+                            <Grid item xs="auto">
+                                <Container>01.01.2000</Container>
+                            </Grid>               
                         </Grid>
-                        <Grid item xs="auto">
-                            <Container>01.01.2000</Container>
-                        </Grid>               
-                    </Grid>
-                </ListItem>
-                <ListItem>
-                    <Grid container spacing={2}>
-                        <Grid item xs={5}>
-                            <Container>{i('noun:country')}</Container>
+                    </ListItem>
+                    <ListItem>
+                        <Grid container spacing={2}>
+                            <Grid item xs={5}>
+                                <Container>{i('noun:country')}</Container>
+                            </Grid>
+                            <Grid item xs="auto">
+                                <Container>England</Container>
+                            </Grid>               
                         </Grid>
-                        <Grid item xs="auto">
-                            <Container>variable width content</Container>
-                        </Grid>               
-                    </Grid>
-                </ListItem>
-                <ListItem>
-                    <Grid container spacing={2}>
-                        <Grid item xs={5}>
-                            <Container>{i('noun:city')}</Container>
+                    </ListItem>
+                    <ListItem>
+                        <Grid container spacing={2}>
+                            <Grid item xs={5}>
+                                <Container>{i('noun:city')}</Container>
+                            </Grid>
+                            <Grid item xs="auto">
+                                <Container>London</Container>
+                            </Grid>               
                         </Grid>
-                        <Grid item xs="auto">
-                            <Container>variable width content</Container>
-                        </Grid>               
-                    </Grid>
-                </ListItem>
-                <ListItem>
-                    <Grid container spacing={2}>
-                        <Grid item xs={5}>
-                            <Container>{i('noun:street-number')}</Container>
+                    </ListItem>
+                    <ListItem>
+                        <Grid container spacing={2}>
+                            <Grid item xs={5}>
+                                <Container>{i('noun:street-number')}</Container>
+                            </Grid>
+                            <Grid item xs="auto">
+                                <Container>Oxford Street, 283</Container>
+                            </Grid>               
                         </Grid>
-                        <Grid item xs="auto">
-                            <Container>variable width content</Container>
-                        </Grid>               
-                    </Grid>
-                </ListItem>
-                <ListItem>
-                    <Grid container spacing={2}>
-                        <Grid item xs={5}>
-                            <Container>{i('noun:zipcode')}</Container>
+                    </ListItem>
+                    <ListItem>
+                        <Grid container spacing={2}>
+                            <Grid item xs={5}>
+                                <Container>{i('noun:zipcode')}</Container>
+                            </Grid>
+                            <Grid item xs="auto">
+                                <Container>W1C 2DN</Container>
+                            </Grid>               
                         </Grid>
-                        <Grid item xs="auto">
-                            <Container>variable width content</Container>
-                        </Grid>               
-                    </Grid>
-                </ListItem>
-                <ListItem>
-                    <Grid container spacing={1}>
-                        <Grid item xs={5.1}>
-                            <Container>{i('noun:phone')}</Container>
+                    </ListItem>
+                    <ListItem>
+                        <Grid container spacing={1}>
+                            <Grid item xs={5.1}>
+                                <Container>{i('noun:phone')}</Container>
+                            </Grid>
+                            <Grid item xs="auto">
+                                <Container>00447511668860</Container>
+                            </Grid>               
                         </Grid>
-                        <Grid item xs="auto">
-                            <Container>variable width content</Container>
-                        </Grid>               
-                    </Grid>
-                </ListItem>
-                <ListItem>
-                    <Grid container spacing={2}>
-                        <Grid item xs={5}>
-                            <Container>{i('noun:email')}</Container>
+                    </ListItem>
+                    <ListItem>
+                        <Grid container spacing={2}>
+                            <Grid item xs={5}>
+                                <Container>{i('noun:email')}</Container>
+                            </Grid>
+                            <Grid item xs="auto">
+                                <Container>john.doe@gamil.com</Container>
+                            </Grid>               
                         </Grid>
-                        <Grid item xs="auto">
-                            <Container>variable width content</Container>
-                        </Grid>               
-                    </Grid>
-                </ListItem>
-                <ListItem>
-                    <Grid container spacing={2}>
-                        <Grid item xs={5}>
-                            <Container>{i('noun:password')}</Container>
+                    </ListItem>
+                    <ListItem>
+                        <Grid container spacing={2}>
+                            <Grid item xs={5}>
+                                <Container>{i('noun:password')}</Container>
+                            </Grid>
+                            <Grid item xs="auto">
+                                <Container>*************</Container>
+                            </Grid>               
                         </Grid>
-                        <Grid item xs="auto">
-                            <Container>variable width content</Container>
-                        </Grid>               
-                    </Grid>
-                </ListItem>
-            </List>
-            <Button variant="contained" onClick={() => goToScreen('edit')}>{i('action:edit')}</Button>
-        </Stack>
-    </Container>
+                    </ListItem>
+                </List>
+                <Button variant="contained" onClick={() => goToScreen('edit')}>{i('action:edit')}</Button>
+            </Stack>
+        </Container>
+    );
 }

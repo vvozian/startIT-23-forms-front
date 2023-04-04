@@ -14,12 +14,14 @@ import {ReadyFormScreen} from "./screens/ReadyFormScreen";
 import { ProfileScreen } from "./screens/ProfileScreen";
 import { EditScreen } from "./screens/EditScreen";
 import SimpleBottomNavigation from "./screens/BottomNavigation";
+import FixedBottomNavigation from "./screens/BottomNavigation";
 
 const theme = createTheme();
 
 export const App = () => {
 
     return <>
+     
         <ThemeProvider theme={theme}>
             <InternationalizationProvider>
                 <NavigationProvider routes={{
@@ -37,8 +39,9 @@ export const App = () => {
                     'edit': <EditScreen />
                 }
                 }/>
+                <FixedBottomNavigation />
             </InternationalizationProvider>
-            {/* <SimpleBottomNavigation /> */}
-        </ThemeProvider>
+        </ThemeProvider>           
+        
     </>
 }

@@ -15,7 +15,7 @@ export const FormMainScreen = () => {
         onClick: () => goToScreen('home')
     }
 
-    return <Container maxWidth={false}>
+    return <Container maxWidth={false} sx={{pb: 6}}>
         <Stack direction="column" justifyContent="space-between" spacing={2} height="100vh" pb={2}>
             <BasicTopBar leftAction={goBackAction} title={"Form"}/>
             <Stack direction="column" alignItems={"center"}>

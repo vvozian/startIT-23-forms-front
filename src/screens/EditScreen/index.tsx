@@ -13,7 +13,7 @@ export const EditScreen = () => {
         onClick: () => goToScreen('profile')
     }
 
-    return <Container maxWidth={false}>
+    return( <Container maxWidth={false}>
         <Stack direction="column" justifyContent="center" spacing={2} minHeight="100vh" py={5}> 
             <BasicTopBar leftAction={goBackAction} />
             <Container className="title">{i('noun:edit')}</Container>
@@ -34,4 +34,5 @@ export const EditScreen = () => {
             <Button variant="contained" onClick={() => goToScreen('profile')}>{i('action:edit')}</Button>
         </Stack>
     </Container>
+    );
 }   

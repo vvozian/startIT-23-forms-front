@@ -3,13 +3,16 @@ import {SupportedLocales} from "../Providers/InternationalizationProvider";
 const enLang: { [key: string]: string } = {
     'action:login': 'Log in',
     'action:register': 'Register',
+    'action:profile': 'Profile',
+    'action:edit': 'Edit',
     'action:polish': 'Polish',
     'action:english': 'English',
     'action:german': 'German',
     'action:portuguese': 'Portuguese',
     'action:nedeland': 'Dutch',
     'action:russian': 'Russian',
-    'noun:log': 'Login',
+    'action:home': 'Home',
+    'noun:log': 'Log in',
     'noun:reg': 'Registration',
     'noun:edit': 'Editing',
     'noun:language': 'Select language',
@@ -21,15 +24,22 @@ const enLang: { [key: string]: string } = {
     'noun:inProgress': "In progress",
     'noun:archive': 'Archive',
     'noun:IDnumber': 'ID number',
-    'noun:names':'Names',
-    'noun:surname': 'Surname',
+    'noun:names':'First name(s)',
+    'noun:surname': 'Last name',
     'noun:birthdate': 'Date of birth',
     'noun:country': 'Nationality',
     'noun:city': 'City',
     'noun:street-number': 'Street, number',
     'noun:zipcode': 'Zip code',
     'noun:phone': 'Phone number',
-}
+    'noun:completedForm': 'Completed form',
+    'action:startFillingTheForm': 'Start filling the form',
+    'noun:translation': 'Translation',
+    'noun:aboutTheForm': 'About the form',
+
+
+};
+
 
 const plLang: { [key: string]: string } = {
     'action:login': 'Zaloguj się',
@@ -42,6 +52,7 @@ const plLang: { [key: string]: string } = {
     'action:portuguese': 'Portugalski',
     'action:nedeland': 'Niderlandzki',
     'action:russian': 'Rosyjski',
+    'action:home': 'Strona główna',
     'noun:log': 'Logowanie',
     'noun:reg': 'Rejestracja',
     'noun:edit': 'Edytowanie',
@@ -62,19 +73,28 @@ const plLang: { [key: string]: string } = {
     'noun:street-number': 'Ulica, numer',
     'noun:zipcode': 'Kod pocztowy',
     'noun:phone': 'Numer telefonu',
+    'noun:completedForm': 'Ukończony formularz',
+    'action:startFillingTheForm': 'Zacznij uzupełnianie formularza',
+    'noun:translation': 'Tłumaczenie',
+    'noun:aboutTheForm': 'Informacje o formularzu',
+
 }
 
 const deLang: { [key: string]: string } = {
     'action:login': 'Anmelden',
     'action:register': 'Registrieren',
+    'action:profile': 'Profil',
+    'action:edit': 'Bearbeiten',
     'action:polish': 'Polnisch',
     'action:english': 'Englisch',
     'action:german': 'Deutsch',
     'action:portuguese': 'Portugiesisch',
     'action:nedeland': 'Niederländisch',
     'action:russian': 'Russisch',
+    'action:home': 'Startseite',
     'noun:log': 'Anmeldung',
     'noun:reg': 'Registrierung',
+    'noun:edit': 'Bearbeitung',
     'noun:language': 'Sprache auswählen',
     'noun:email': "E-Mail",
     'noun:password': "Passwort",
@@ -83,8 +103,8 @@ const deLang: { [key: string]: string } = {
     'noun:allForms': "Alle Formulare",
     'noun:inProgress': "In Bearbeitung",
     'noun:archive': 'Archiv',
-    'noun:IDnumber': 'Ausweisnummer',
-    'noun:names':'Vorname',
+    'noun:IDnumber': 'Personalausweisnummer',
+    'noun:names':'Vornamen',
     'noun:surname': 'Nachname',
     'noun:birthdate': 'Geburtsdatum',
     'noun:country': 'Nationalität',
@@ -92,7 +112,7 @@ const deLang: { [key: string]: string } = {
     'noun:street-number': 'Straße, Hausnummer',
     'noun:zipcode': 'Postleitzahl',
     'noun:phone': 'Telefonnummer',
-}
+    }
 
 const ptLang: { [key: string]: string } = {
     'action:login': 'Entrar',
